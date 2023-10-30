@@ -74,7 +74,7 @@ func (mgr *CertificateDownloaderMgr) GetCertificateVisitor(mchID string) core.Ce
 1. `/v3/bill/tradebill` 获取账单下载链接和账单摘要
 2. `/v3/billdownload/file` 账单文件下载，请求需签名但应答不签名
 
-其中第二步的应答中不包含应答数字签名，无法验签，应使用`WithoutValidator()`**跳过**应答签名的校验。
+其中，第二步的应答中不包含应答数字签名，无法验签，应使用`WithoutValidator()`**跳过**应答签名的校验。
 ```go
 opts := []core.ClientOption{
 	option.WithMerchantCredential(mchID, mchCertificateSerialNumber, privateKey),
